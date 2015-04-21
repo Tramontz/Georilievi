@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <title>Georilievi Data Viewver</title>
+    </h:head>
+  <h:body>
+<p:layout fullPage="true">
+ 
+    <p:layoutUnit position="north" size="100" header="Data Show" resizable="true" closable="true" collapsible="true">
+        <h:outputText value="Wellcome to Georilievi main page, here you can find all instrument fo display data about your monitoring work, please select your work and enjoy" />
+    </p:layoutUnit>
+
+ 
+    <p:layoutUnit position="west" size="250" header="Main Menu" resizable="false" closable="false" collapsible="true">
+ <h:form>
+    <p:growl id="messages" showDetail="false"/>
+ 
+    <h3 style="margin-top:0">Aviable Instruments</h3>
+    <p:menu>
+        <p:submenu label="Aviable Work">
+            <p:menuitem value="select your work" actionListener="#{pageManagingBean.setPage('worklist')}" update=":main_content" ajax="false" icon="ui-icon-disk" />
+        </p:submenu>
+        <p:submenu label="Map">
+                                            
+            <p:menuitem value="Display referencies Map" actionListener="#{pageManagingBean.setPage('gmapdata')}" icon="ui-icon-disk" update=":main_content" ajax="false"/>
+                        
+        </p:submenu>
+         <p:submenu label="Table">
+            <p:menuitem value="view ALL table" actionListener="#{userLoginView.login}" update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="view instrument table" actionListener="#{userLoginView.login}" update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="view point table" actionListener="#{userLoginView.login}" update="messages" icon="ui-icon-disk" />
+            </p:submenu>
+        <p:submenu label="Graph">
+            <p:menuitem value="Display referencies Map" actionListener="#{userLoginView.login}" update="messages" icon="ui-icon-disk" />
+        </p:submenu>
+        <p:submenu label="External Resources">
+            <p:menuitem value="Join Us" url="http://www.georilievi.it" icon="ui-icon-home"/>
+            <p:menuitem value="Download" url="http://www.georilievi.it" icon="ui-icon-home"/>
+            <p:menuitem value="Contact US" outcome="index" icon="ui-icon-star"/>
+        </p:submenu>
+    </p:menu>
+       </h:form>
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+        <h:outputText value="Right unit content." />
+    </p:layoutUnit>
+ 
+    <p:layoutUnit id="main_content" position="center" >
+        <ui:include src="#{pageManagingBean.page}.xhtml" /> 
+    </p:layoutUnit>
+ 
+</p:layout>
+    </h:body>
+</html>
