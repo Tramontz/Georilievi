@@ -8,8 +8,11 @@
     
     <h:head>
         <title>Georilievi Data Viewver</title>
+
     </h:head>
   <h:body>
+      <script src="http://maps.google.com/maps/api/js?sensor=false"
+        type="text/javascript" ></script>
 <p:layout fullPage="true">
  
     <p:layoutUnit position="north" size="100" header="Data Show" resizable="true" closable="true" collapsible="true">
@@ -24,12 +27,12 @@
     <h3 style="margin-top:0">Aviable Instruments</h3>
     <p:menu>
         <p:submenu label="Aviable Work">
-            <p:menuitem value="select your work" actionListener="#{pageManagingBean.setPage('worklist')}" update=":main_content" ajax="false" icon="ui-icon-disk" />
+            <p:menuitem value="select your work" action="#{pageManagingBean.setPage('defaultpage.xhtml')}" update=":main_content" ajax="true" icon="ui-icon-disk" />
         </p:submenu>
         <p:submenu label="Map">
-                                            
-            <p:menuitem value="Display referencies Map" actionListener="#{pageManagingBean.setPage('gmapdata')}" icon="ui-icon-disk" update=":main_content" ajax="false"/>
-                        
+                                           
+            <p:menuitem value="Display referencies Map" action="#{pageManagingBean.setPage('gmapdata.xhtml')}" icon="ui-icon-disk" update=":main_content" ajax="true"/>
+                     
         </p:submenu>
          <p:submenu label="Table">
             <p:menuitem value="view ALL table" actionListener="#{userLoginView.login}" update="messages" icon="ui-icon-disk" />
@@ -52,8 +55,10 @@
         <h:outputText value="Right unit content." />
     </p:layoutUnit>
  
-    <p:layoutUnit id="main_content" position="center" >
-        <ui:include src="#{pageManagingBean.page}.xhtml" /> 
+    <p:layoutUnit  position="center" >
+        <h:form id="main_content">
+        <ui:include src="#{pageManagingBean.page}"  />
+</h:form> 
     </p:layoutUnit>
  
 </p:layout>

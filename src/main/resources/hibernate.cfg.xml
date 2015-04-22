@@ -7,5 +7,7 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Misure</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">Fabio1990</property>
+    <property name="hibernate.default_schema">monitoraggio</property>
+    <mapping resource="lavoro.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
