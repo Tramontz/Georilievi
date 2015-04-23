@@ -18,7 +18,9 @@ public class Lavoro {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 private String idLavoro;
 private String posizione;
+@Column(name="data_inizio")
 private Date dataInizio;
+@Column(name="data_fine")
 private Date dataFine;
 private String note;
 
