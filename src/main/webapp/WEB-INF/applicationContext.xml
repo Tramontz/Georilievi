@@ -48,7 +48,7 @@
     </bean>
  
      
-    <bean id="lavoroDAO" class="DAO.LavoroDAOImpl">
+    <bean id="lavoroDAO" class="DAO.lavoro.LavoroDAOImpl">
         <property name="sessionFactory" ref="hibernateAnnotatedSessionFactory" />
     </bean>
 

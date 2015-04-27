@@ -1,7 +1,7 @@
-package DAO;
+package DAO.lavoro;
 
 import java.util.List;
-import data.Lavoro;
+import hibernate.data.Lavoro;
 
 public interface LavoroDAO {     
  

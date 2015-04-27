@@ -1,13 +1,12 @@
-package DAO;
+package DAO.punti;
 
 import java.util.List; 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import data.Lavoro;
+import hibernate.data.Punti;
 
-public class LavoroDAOImpl implements LavoroDAO{
-    
+public class PuntiDAOImpl implements PuntiDAO{    
 
  
     private SessionFactory sessionFactory;
@@ -17,20 +16,20 @@ public class LavoroDAOImpl implements LavoroDAO{
     }
      
     @Override
-    public void save(Lavoro l) {
+    public void save(Punti p) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        session.persist(l);
+        session.persist(p);
         tx.commit();
         session.close();
     }
  
     @SuppressWarnings("unchecked")
     @Override
-    public List<Lavoro> list() {
+    public List<Punti> list() {
         Session session = this.sessionFactory.openSession();
-        List<Lavoro> lavoroList = session.createQuery("from Lavoro").list();
+        List<Punti> puntiList = session.createQuery("from Punti").list();
         session.close();
-        return lavoroList;
+        return puntiList;
     } 
 }

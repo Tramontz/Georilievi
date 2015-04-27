@@ -1,4 +1,4 @@
-package data;
+package hibernate.data;
 
 import java.util.Date;
 
